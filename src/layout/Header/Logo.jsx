@@ -2,7 +2,7 @@ import { BiMoviePlay } from 'react-icons/bi'
 
 const Logo = () => {
   return (
-    <div className='flex items-center gap-2'>
+    <div className='flex items-center gap-2 lg:w-1/6'>
       <BiMoviePlay
         size={32}
         className='text-blue-500 cursor-pointer'

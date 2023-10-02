@@ -21,7 +21,7 @@ const MenuMobile = () => {
         className={`absolute top-10 right-0 w-full shadow-md transition-all ease-linear duration-300 bg-white 
                     ${toggleMobileMenu ? 'translate-y-2' : '-translate-y-80'}`}
       >
-        <Navbar className='flex flex-col h-auto px-2 gap-2' />
+        <Navbar className='flex flex-col h-auto px-2 gap-2 z-50' />
       </div>
     </div>
   )
