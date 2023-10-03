@@ -4,7 +4,10 @@ const Movies = () => {
   return (
     <div className='p-4 flex flex-wrap justify-around gap-3'>
       {movies.map((m, i) => (
-        <div className='relative rounded-md overflow-hidden sm:w-5/12 md:w-3/12 lg:w-2/12 border shadow-md'>
+        <div
+          className='relative rounded-md overflow-hidden sm:w-5/12 md:w-3/12 lg:w-2/12 border shadow-md'
+          key={m.id}
+        >
           <Link href={`/movie/${m.id}`}>
             <div>
               <img
