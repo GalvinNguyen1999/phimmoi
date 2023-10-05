@@ -1,13 +1,7 @@
 'use client'
-import { useState, useEffect } from 'react'
-import axios from '@/utils/customAxios'
 import Link from 'next/link'
-const Movies = () => {
-  const [movies, setMovies] = useState([])
-  useEffect(() => {
-    axios.get('3/movie/popular?language=en-US&page=1').then((data) => setMovies(data))
-  }, [])
-  console.log('movies: ', movies)
+
+const Movies = ({ movies }) => {
   return (
     <div className='p-4 flex flex-wrap justify-around gap-3'>
       {movies?.results?.map((m, i) => (
