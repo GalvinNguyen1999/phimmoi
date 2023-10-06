@@ -107,7 +107,6 @@ const Navbar = ({ className }) => {
                 onClick={() => {
                   router.push(`/year/${year?.year}`)
                   setYearShow(false)
-                  onToggleMobileMenu(false)
                 }}
               >
                 {year?.year}
