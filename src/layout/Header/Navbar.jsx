@@ -32,7 +32,7 @@ const Navbar = ({ className }) => {
           </button>
         </div>
         <div
-          className={`absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${
+          className={`absolute left-0 z-10 mt-2 w-full lg:w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${
             isCategoryShow ? 'block' : 'hidden'
           }`}
           role='menu'
@@ -47,12 +47,12 @@ const Navbar = ({ className }) => {
             {genreList?.genres?.map((genre) => (
               <button
                 key={genre.id}
-                className='text-gray-700 block px-4 py-2 text-sm'
+                className='text-gray-700 block px-4 py-2 text-sm w-full lg:w-auto'
                 role='menuitem'
                 tabIndex={-1}
                 onClick={() => {
-                  router.push(`/category/${genre.id}`)
                   setCategoryShow(false)
+                  router.push(`/category/${genre.id}`)
                 }}
               >
                 {genre.name}
@@ -107,6 +107,7 @@ const Navbar = ({ className }) => {
                 onClick={() => {
                   router.push(`/year/${year?.year}`)
                   setYearShow(false)
+                  onToggleMobileMenu(false)
                 }}
               >
                 {year?.year}
