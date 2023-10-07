@@ -1,13 +1,14 @@
 'use client'
 import { useState, useEffect } from 'react'
 import axios from '@/utils/customAxios'
-import Button from '@/components/Button'
+import Link from 'next/link'
 import { IoIosArrowDown } from 'react-icons/io'
 import { BiPlay } from 'react-icons/bi'
 import Credits from '@/modules/Movie/Credits'
 
 const MoviePageParams = ({ params }) => {
   const [movie, setMovie] = useState({})
+
   useEffect(() => {
     axios
       .get(`/3/movie/${params.slug}?language=en-US&append_to_response=videos,credits,similar`)
@@ -24,10 +25,10 @@ const MoviePageParams = ({ params }) => {
       >
         <div className='text-white absolute pr-[10%] left-[10%] bottom-[2%] mb-4'>
           <div className='flex flex-wrap md:flex-nowrap gap-4 w-full'>
-            <div className='hidden md:block md:w-4/12'>
+            <div className='hidden md:block max-w-full'>
               <img
                 src={`https://image.tmdb.org/t/p/w300${movie?.poster_path}`}
-                className='rounded-md w-full h-28 md:h-full border'
+                className='rounded-md w-full h-full border'
                 alt={movie?.original_title}
               />
             </div>
@@ -52,18 +53,20 @@ const MoviePageParams = ({ params }) => {
               </div>
 
               <div className='flex items-center gap-3'>
-                <Button
-                  className='flex items-center gap-1 bg-green-500 hover:opacity-70 transition-all duration-200 border-0'
-                  leftIcon={<IoIosArrowDown />}
+                <Link
+                  href={`/watch-movie/${movie?.id}`}
+                  className='flex items-center gap-1 bg-green-500 hover:opacity-70 transition-all duration-200 border-0 p-2 rounded-lg'
                 >
+                  <IoIosArrowDown />
                   Trailer
-                </Button>
-                <Button
-                  className='flex items-center gap-1 bg-green-500 hover:opacity-70 transition-all duration-200 border-0'
-                  leftIcon={<BiPlay />}
+                </Link>
+                <Link
+                  href={`/watch-movie/${movie?.id}`}
+                  className='flex items-center gap-1 bg-green-500 hover:opacity-70 transition-all duration-200 border-0 p-2 rounded-lg'
                 >
+                  <BiPlay />
                   Xem phim
-                </Button>
+                </Link>
               </div>
             </div>
           </div>
