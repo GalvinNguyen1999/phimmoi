@@ -4,6 +4,7 @@ import axios from '@/utils/customAxios'
 import { BiSearchAlt2 } from 'react-icons/bi'
 import { useRouter } from 'next/navigation'
 import Button from '@/components/Button'
+import Link from 'next/link'
 
 const SearchHeader = ({ className }) => {
   const [setsearchValue, setSetsearchValue] = useState('')
@@ -28,7 +29,7 @@ const SearchHeader = ({ className }) => {
     handleClickSearch()
   }
   const fiveResults = resultsSearch?.results?.slice(0, 5)
-
+  
   const handleClickSearch = () => {
     router.push(`/search`)
     setIsResultShow(false)
@@ -69,9 +70,11 @@ const SearchHeader = ({ className }) => {
         <div className='text-gray-500 px-5 py-2'>Movies</div>
         <div className='flex flex-col gap-2 p-2'>
           {fiveResults?.map((fiveResult) => (
-            <div
+            <Link
+              href={`/watch-movie/${fiveResult?.id}`}
               key={fiveResult?.id}
               className='flex border rounded-lg shadow-lg w-full min-h-[80px]'
+              onClick={() => setIsResultShow(false)}
             >
               <div className='rounded-lg overflow-hidden w-1/4 h-full'>
                 <img
@@ -84,7 +87,7 @@ const SearchHeader = ({ className }) => {
                 <h5 className='font-bold  leading-tight mb-1'>{fiveResult?.title}</h5>
                 <p className='text-sm text-gray-500'>{fiveResult?.original_title}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
