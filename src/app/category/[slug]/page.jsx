@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import axios from '@/utils/customAxios'
 import Movies from '@/modules/Home/Movies'
-import { Pagination } from '@/components/Pagination'
+import Pagination from '@/components/Pagination'
 
 export default function CategoryPage({ params }) {
   const [movies, setMovies] = useState([])

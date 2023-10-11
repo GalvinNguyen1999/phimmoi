@@ -1,7 +1,7 @@
 import React from 'react'
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md'
 
-export const Pagination = ({ pageSize, currentPage, onPageChange }) => {
+const Pagination = ({ pageSize, currentPage, onPageChange }) => {
   const pages = Array.from({ length: pageSize }, (_, i) => i + 1)
 
   const handlePrevPage = () => {
@@ -44,3 +44,5 @@ export const Pagination = ({ pageSize, currentPage, onPageChange }) => {
     </div>
   )
 }
+
+export default Pagination
